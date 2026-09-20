@@ -48,10 +48,19 @@ Once your domain is active on Cloudflare (status changes to "Active"):
   - **Then:** **Block** for 1 hour.
   *(This stops hackers from guessing your password)*
 
-#### D. Disable XML-RPC Completely
-- Go to **Security** > **WAF** > **Tools**.
+#### D. Block Direct Access to wp-login.php (CRITICAL)
+- Go to **Security** > **WAF** > **Tools** > **Page Rules**.
+- Click **Create Page Rule**:
+  - **URL Pattern:** `*netpluscomputers.lk/wp-login.php*`
+  - **Pick a Setting:** Security Level → **I'm Under Attack!** (or choose **Block**)
+  - **Alternative Setting:** Access Rules → **Block**
+- Click **Save and Deploy**.
+*(Since you will use WPS Hide Login to access via `/np-secure-login-2025`, blocking `/wp-login.php` at Cloudflare level prevents all bot brute-force attempts from consuming your server resources. Bots scanning for wp-login.php will be blocked before reaching your hosting.)*
+
+#### E. Disable XML-RPC Completely
+- Go to **Security** > **WAF** > **Tools** > **Page Rules**.
 - Create a Page Rule:
-  - **URL:** `netpluscomputers.lk/xmlrpc.php`
+  - **URL Pattern:** `*netpluscomputers.lk/xmlrpc.php*`
   - **Setting:** Block
   *(XML-RPC is a common attack vector for WordPress)*
 
