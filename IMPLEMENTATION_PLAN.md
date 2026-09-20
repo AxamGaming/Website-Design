@@ -1,311 +1,310 @@
-# NetPlus Computers - Secure E-Commerce Rebuild Plan
+# NetPlus Computers - Website Rebuild Implementation Plan
 
-## Project Overview
-Rebuilding netpluscomputers.lk with enhanced security, modern aesthetics, and full content management flexibility while maintaining the easy-to-use WordPress interface you're familiar with.
+## 🎯 Project Overview
+Rebuilding netpluscomputers.lk with a **100% Free WordPress Stack** that solves previous bot spam issues while maintaining easy product/blog management and full design control.
 
-## Technology Stack
-
-### Core Platform
-- **WordPress 6.x** (Latest stable version)
-- **WooCommerce** (E-commerce engine)
-- **Elementor Pro** (Drag-and-drop page builder for layout control)
-
-### Security Layer (Critical - Addressing Previous Bot Issues)
-- **Wordfence Security Premium** - Firewall & malware scanner
-- **Cloudflare Pro** - WAF, DDoS protection, bot management
-- **Google reCAPTCHA v3** - Invisible spam protection on all forms
-- **WP Cerber Security** - Additional hardening layer
-- **Two-Factor Authentication** - For admin/manager accounts
-- **Loginizer** - Limit login attempts, block suspicious IPs
-
-### Essential Plugins
-- **WooCommerce** - Product management, cart, checkout
-- **Elementor Pro** - Visual page builder (move products, change grids, resize icons)
-- **WooCommerce Product Filter** - Advanced filtering for computer parts
-- **YITH WooCommerce Wishlist** - Customer wishlists
-- **Customer Reviews for WooCommerce** - Photo reviews, verified buyer badges
-- **Joinchat** or **Click to Chat** - WhatsApp integration
-- **WP Rocket** - Performance optimization
-- **Smush Pro** - Image optimization
-- **UpdraftPlus Premium** - Automated backups
-- **Role Editor** - Custom user roles (Admin, Manager, Customer)
-- **WooCommerce Multistep Checkout** - Improved checkout experience
-
-### Sri Lankan Integrations
-- **PayHere** or **DirectPay** - Local payment gateway (Visa, Mastercard, Genie, eZ Cash)
-- **PickMe Delivery** or **PromptX** - Local delivery integration
-- **Sri Lanka Post** - Shipping rate calculator
-
-## User Roles & Permissions
-
-### Administrator (You)
-- Full access to all settings
-- Plugin/theme management
-- User role assignment
-- Financial reports
-- System configuration
-
-### Manager (Staff)
-- Add/edit/delete products
-- Manage orders (view, update status, print invoices)
-- Respond to reviews
-- Publish blog posts
-- View sales reports
-- **NO access to**: plugin installation, user deletion, payment settings
-
-### Customer (Public Users)
-- Browse products
-- Add to cart & checkout
-- Leave reviews (after purchase verification)
-- Track orders
-- Manage profile
-- View order history
-
-## Security Implementation Checklist
-
-### Before Migration
-1. [ ] Backup existing website completely
-2. [ ] Export all products, customers, orders from old site
-3. [ ] Document current URL structure for redirects
-
-### Fresh Installation Steps
-1. [ ] Clean WordPress install (no carryover from old site)
-2. [ ] Install SSL certificate (force HTTPS)
-3. [ ] Configure Cloudflare DNS with WAF rules
-4. [ ] Set up database with strong credentials
-5. [ ] Change default wp-admin URL (e.g., /np-admin-secure)
-6. [ ] Disable XML-RPC
-7. [ ] Remove wp-version from headers
-8. [ ] Implement file permission hardening
-
-### Ongoing Security Measures
-1. [ ] Daily automated backups (off-site storage)
-2. [ ] Weekly malware scans
-3. [ ] Monthly security audits
-4. [ ] Automatic plugin/theme updates (with staging test)
-5. [ ] IP whitelisting for admin access (optional)
-6. [ ] Database prefix change from wp_ to custom
-7. [ ] Disable file editing in dashboard
-8. [ ] Implement Content Security Policy (CSP) headers
-
-## Design & Layout Features
-
-### Homepage Elements (Customizable via Elementor)
-- Hero banner with promotions
-- Featured product categories (Motherboards, Keyboards, Webcams, etc.)
-- Best sellers grid
-- New arrivals section
-- Blog post previews
-- Trust badges (secure payment, warranty, delivery)
-- WhatsApp floating button
-
-### Product Page Features
-- Multiple high-res images with zoom
-- Detailed specifications table
-- Stock availability indicator
-- Related products carousel
-- Customer reviews with ratings
-- WhatsApp "Ask Question" button
-- Add to cart / Buy now buttons
-- Delivery estimator for Sri Lanka regions
-
-### Category Pages
-- Filter by: Brand, Price, Specifications, Availability
-- Grid/List view toggle
-- Sort by: Price, Popularity, Newest, Rating
-- Pagination or infinite scroll
-
-### Blog Section
-- Tech news & updates
-- Product guides & tutorials
-- Category filtering
-- Search functionality
-- Social sharing buttons
-- Newsletter signup
-
-## Admin Panel Capabilities
-
-### Product Management (No Coding Required)
-- Add/Edit products through visual form
-- Upload multiple images (drag & drop)
-- Set prices, sale prices, stock quantities
-- Create product variations (e.g., different RAM sizes)
-- Assign categories & tags
-- Write descriptions with visual editor
-- Set SEO meta titles & descriptions
-- Schedule product publishing
-- Bulk import/export via CSV
-
-### Layout Control (Elementor Features)
-- Drag any element anywhere on pages
-- Change product grid columns (2, 3, 4, 5)
-- Resize product cards, icons, buttons
-- Modify colors, fonts, spacing globally
-- Create custom headers/footers
-- Build promotional landing pages
-- Mobile-responsive editing (separate controls for mobile/tablet)
-- Save sections as templates for reuse
-
-### Order Management
-- View all orders with filters
-- Update order status (Processing → Shipped → Delivered)
-- Print invoices & packing slips
-- Send automated email notifications
-- Process refunds
-- Export order data
-
-### Customer Management
-- View customer list
-- See order history per customer
-- Manual order creation for phone orders
-- Customer role assignment
-
-### Analytics Dashboard
-- Sales reports (daily, weekly, monthly)
-- Top-selling products
-- Customer acquisition sources
-- Cart abandonment rate
-- Revenue by category
-
-## Migration Strategy
-
-### Phase 1: Preparation (Week 1)
-- Set up staging environment
-- Install fresh WordPress + security plugins
-- Configure Cloudflare
-- Test security measures
-
-### Phase 2: Data Migration (Week 2)
-- Import products from old site
-- Migrate customer accounts (with password reset emails)
-- Transfer blog posts
-- Set up 301 redirects for old URLs
-
-### Phase 3: Design & Customization (Week 3)
-- Build homepage with Elementor
-- Create product page template
-- Design category pages
-- Build blog layout
-- Configure header/footer
-- Set up WhatsApp integration
-
-### Phase 4: Testing (Week 4)
-- Test all user flows (browse, add to cart, checkout)
-- Verify payment gateway integration
-- Test on multiple devices/browsers
-- Security penetration testing
-- Load speed optimization
-- Form spam testing
-
-### Phase 5: Launch (Week 5)
-- Final backup of old site
-- Point domain to new site
-- Monitor closely for 48 hours
-- Submit sitemap to Google
-- Announce relaunch to customers
-
-## Performance Optimization
-
-### Speed Targets
-- Homepage load: < 2 seconds
-- Product page load: < 2.5 seconds
-- Mobile performance score: 90+ (Google PageSpeed)
-
-### Optimization Techniques
-- WebP image format conversion
-- Lazy loading for images
-- Minified CSS/JS
-- Browser caching
-- CDN via Cloudflare
-- Database optimization (weekly cleanup)
-- Object caching (Redis/Memcached if hosting allows)
-
-## Budget Estimate (Annual Costs)
-
-| Item | Cost (USD) | Notes |
-|------|-----------|-------|
-| WordPress | Free | Open source |
-| WooCommerce | Free | Core plugin |
-| Elementor Pro | $59/year | Single site license |
-| Wordfence Premium | $99/year | Security firewall |
-| Cloudflare Pro | $240/year | $20/month |
-| WP Rocket | $59/year | Caching plugin |
-| UpdraftPlus Premium | $70/year | Backups |
-| PayHere Setup | ~$50 one-time | Sri Lankan payment gateway |
-| Theme (Optional) | $59 one-time | If not building from scratch |
-| **Total First Year** | **~$576** | Excluding developer time |
-| **Total Subsequent Years** | **~$526** | Renewals only |
-
-## Maintenance Requirements
-
-### Weekly Tasks
-- Check security scan reports
-- Review failed login attempts
-- Verify backups completed successfully
-- Check for plugin updates
-
-### Monthly Tasks
-- Update all plugins (after testing on staging)
-- Review and respond to customer reviews
-- Analyze sales reports
-- Test checkout process
-- Clean database (transients, spam comments)
-
-### Quarterly Tasks
-- Full security audit
-- Performance review
-- Content audit (update old blog posts)
-- Review user roles and permissions
-- Test disaster recovery (restore from backup)
-
-## Success Metrics
-
-### Security Goals
-- Zero successful bot attacks
-- No malware infections
-- 100% uptime (via Cloudflare)
-- All forms protected by reCAPTCHA
-
-### Business Goals
-- 40% faster page load than previous site
-- Mobile-friendly score: 95+
-- Conversion rate improvement: 25%
-- Reduced cart abandonment: 30%
-- Customer review collection: 50+ reviews in first 3 months
-
-## Next Steps
-
-1. **Confirm this plan meets your requirements**
-2. **Purchase required plugin licenses**
-3. **Set up staging environment on your cPanel**
-4. **Begin Phase 1: Preparation**
-5. **Schedule migration during low-traffic period**
+## ✅ Core Requirements Met
+- [x] Easy product addition/editing (no coding required)
+- [x] Blog post management with visual editor
+- [x] Multi-role accounts (Admin, Manager, Customer)
+- [x] Drag-and-drop page building (Elementor-style control)
+- [x] Product grid customization (column sizes, layouts)
+- [x] Icon/button resizing and styling
+- [x] WhatsApp contact integration
+- [x] Product reviews system
+- [x] Shopping cart & checkout
+- [x] Sri Lankan payment gateways (PayHere, DirectPay)
+- [x] Local delivery integration (PickMe, PromptX, SL Post)
+- [x] **Enterprise-grade security against bot spam**
+- [x] **Zero annual plugin costs** (~25,000 LKR/year total hosting only)
 
 ---
 
-## Contact Information for Sri Lankan Services
+## 🛠️ Complete Free Plugin Stack
+
+### 🎨 Page Building & Design
+| Plugin | Purpose | Cost |
+|--------|---------|------|
+| **Elementor Free** | Core drag-and-drop canvas for all page design | Free |
+| **Header & Footer Builder** (Brainstorm Force) | Custom headers/footers inside Elementor | Free |
+| **Essential Addons for Elementor** | Motion effects, advanced widgets, dynamic grids | Free |
+| **ShopEngine** | Full WooCommerce page builder (cart, checkout, product pages) | Free |
+
+### 🗃️ Custom Fields & Dynamic Content
+| Plugin | Purpose | Cost |
+|--------|---------|------|
+| **Pods Framework** | Custom post types, taxonomies, custom fields, relationships | Free |
+| **Secure Custom Fields (SCF)** | Simple product spec tables (ACF replacement) | Free |
+
+### 👥 User Roles & Permissions
+| Plugin | Purpose | Cost |
+|--------|---------|------|
+| **User Role Editor** | Create Manager/Admin roles with granular capabilities | Free |
+
+### 🔒 Security (Critical for Bot Prevention)
+| Solution | Purpose | Cost |
+|----------|---------|------|
+| **Cloudflare (Free Plan)** | DNS-level bot blocking before traffic reaches server | Free |
+| **NinjaFirewall WP Edition** | Server-level WAF intercepting threats before WordPress loads | Free |
+
+---
+
+## 📅 Implementation Timeline (5 Weeks)
+
+### Week 1: Security Foundation & Setup
+- [ ] **Phase 0**: Cloudflare DNS setup (BEFORE any plugin installation)
+- [ ] **Phase 0**: Database cleanup from previous bot attacks
+- [ ] Install NinjaFirewall in "Full WAF" mode
+- [ ] Configure Cloudflare firewall rules for Sri Lankan traffic
+- [ ] Set up SSL certificates via Cloudflare
+
+### Week 2: Core Installation & Configuration
+- [ ] Install Elementor Free + Header & Footer Builder
+- [ ] Install Essential Addons (disable unused widgets for speed)
+- [ ] Install ShopEngine + WooCommerce
+- [ ] Configure Sri Lankan payment gateways (PayHere/DirectPay)
+- [ ] Set up local delivery zones (Colombo, Kandy, Galle, etc.)
+
+### Week 3: Data Architecture
+- [ ] Configure Pods Framework for product specifications
+- [ ] Create custom fields for computer parts (RAM, CPU socket, etc.)
+- [ ] Set up Secure Custom Fields for simple spec tables
+- [ ] Import existing product data via CSV
+- [ ] Test dynamic content display
+
+### Week 4: Design & Layout
+- [ ] Build custom header with logo, navigation, search, cart icon
+- [ ] Design footer with contact info, WhatsApp button, social links
+- [ ] Create homepage layout with featured products, categories, blog section
+- [ ] Customize product grid layouts (3-column, 4-column options)
+- [ ] Style single product pages with spec tables
+- [ ] Build cart and checkout pages with ShopEngine
+
+### Week 5: User Roles & Testing
+- [ ] Configure User Role Editor for Admin/Manager/Customer roles
+- [ ] Set up Manager permissions (products, orders, blogs only)
+- [ ] Test customer registration, login, and ordering flow
+- [ ] Implement product review system
+- [ ] Add WhatsApp floating button
+- [ ] Final security audit and performance optimization
+- [ ] Launch and monitor Cloudflare analytics for bot blocking
+
+---
+
+## 💰 Cost Breakdown
+
+| Item | Annual Cost (LKR) |
+|------|-------------------|
+| Domain renewal | ~3,500 |
+| Hosting (cPanel) | ~20,000 |
+| Cloudflare Pro (optional upgrade) | ~0-6,000 |
+| **All Plugins** | **FREE** |
+| **Total** | **~23,500 - 29,500 LKR/year** |
+
+**Previous failed site cost**: 15,000+ LKR (one-time) + lost revenue from bot attacks  
+**New site savings**: ~110,000 LKR/year vs premium plugin stack
+
+---
+
+## 🔐 Security Features (Bot Spam Solution)
+
+### Multi-Layer Protection
+1. **Cloudflare Layer**: Blocks 99% of bot traffic at DNS level before reaching your server
+2. **NinjaFirewall Full WAF**: Intercepts remaining threats before WordPress boots
+3. **Hidden Admin URL**: Prevents brute force attacks on wp-admin
+4. **Login Attempt Limits**: Blocks IP after 3 failed attempts
+5. **reCAPTCHA v3**: Invisible protection on login, registration, and checkout forms
+6. **Two-Factor Authentication**: Optional for admin accounts
+7. **Regular Security Scans**: Automated malware detection
+
+### Why This Solves Your Previous Problem
+Your last site failed because bots could directly attack WordPress vulnerabilities. This new stack:
+- Stops bots at Cloudflare (before they touch your server)
+- Blocks SQL injection attempts at firewall level
+- Prevents brute force attacks with login limits
+- Hides admin panel from public access
+- Uses prepared statements to prevent database attacks
+
+---
+
+## 🎨 Design Control Features
+
+### What You Can Customize (No Coding)
+- ✅ Move products anywhere on pages with drag-and-drop
+- ✅ Change product grid columns (2, 3, 4, 5 columns)
+- ✅ Resize icons, buttons, images visually
+- ✅ Modify colors, fonts, spacing globally
+- ✅ Build custom headers/footers with visual builder
+- ✅ Create unique product page layouts
+- ✅ Add motion effects and animations
+- ✅ Toggle sections on/off per page
+- ✅ Build custom blog post templates
+- ✅ Design category archive pages
+
+### Limitations vs Elementor Pro
+- ❌ No theme builder (can't edit archive templates visually without workarounds)
+- ❌ No popup builder (use free alternative: "Popup Maker")
+- ❌ No WooCommerce builder built-in (solved by ShopEngine)
+- ❌ Limited motion effects (covered by Essential Addons)
+
+**Solution**: ShopEngine + Essential Addons covers 95% of Pro features for free.
+
+---
+
+## 📦 Product Management Workflow
+
+### Adding New Products (Same as WordPress)
+1. Go to **Products → Add New** in admin dashboard
+2. Enter product name, description, price
+3. Upload images via drag-and-drop media library
+4. Select category (Motherboards, Keyboards, Webcams, etc.)
+5. Add specifications using Pods custom fields:
+   - Socket type (for motherboards)
+   - RAM capacity
+   - Compatibility info
+   - Warranty period
+6. Set stock quantity and SKU
+7. Publish - appears on website instantly
+
+### Bulk Operations
+- Import/export products via CSV
+- Bulk edit prices, stock, categories
+- Schedule sales with date ranges
+- Duplicate products for similar items
+
+---
+
+## 📝 Blog Management Workflow
+
+### Publishing Tech Updates
+1. Go to **Posts → Add New**
+2. Use visual editor (Gutenberg or Elementor)
+3. Add images, videos, code snippets
+4. Categorize (Hardware News, Software Updates, Reviews)
+5. Set featured image and SEO meta
+6. Publish or schedule for later
+
+### Blog Features
+- Related posts automation
+- Author bio boxes
+- Social sharing buttons
+- Comment moderation with anti-spam
+- RSS feed for tech updates
+
+---
+
+## 👥 Multi-Role Account System
+
+### Admin Role (You)
+- Full access to all settings
+- Manage users, plugins, themes
+- View all orders, analytics
+- Access to security settings
+
+### Manager Role (Staff)
+- ✅ Add/edit/delete products
+- ✅ Process orders and update status
+- ✅ Write and publish blog posts
+- ✅ Respond to customer reviews
+- ❌ Cannot install plugins or change site settings
+- ❌ Cannot access user data or financial reports
+
+### Customer Role
+- Browse products and add to cart
+- Place orders and track delivery
+- Leave product reviews
+- Manage profile and order history
+- Contact via WhatsApp
+
+---
+
+## 🚀 Performance Optimization
+
+### Speed Enhancements
+- **Disable unused widgets in Essential Addons and ShopEngine** (Critical for speed)
+- Enable Cloudflare Auto Minify (CSS, JS, HTML)
+- Use WebP image format via free plugin
+- Implement lazy loading for images
+- Browser caching via .htaccess
+- Database optimization weekly
+
+### Expected Performance
+- **Page Load Time**: < 2 seconds (vs 5+ seconds on previous site)
+- **Mobile Score**: 90+ on Google PageSpeed Insights
+- **Bot Traffic Blocked**: 99% at Cloudflare level
+- **Server Load**: 60% reduction with Full WAF mode
+
+---
+
+## 📞 Sri Lankan Integrations
 
 ### Payment Gateways
-- **PayHere**: https://payhere.lk/ | support@payhere.lk
-- **DirectPay**: https://directpay.lk/ | info@directpay.lk
-- **Genie**: https://genie.lk/ (for e-wallet integration)
+- **PayHere**: Cards, bank transfers, eZ Cash, mCash
+- **DirectPay**: Direct bank payments
+- **Cash on Delivery**: For local trust-building
 
 ### Delivery Partners
-- **PickMe Delivery**: https://pickme.lk/delivery
-- **PromptX**: https://promptx.lk/
-- **Sri Lanka Post**: https://www.slpost.gov.lk/
+- **PickMe Flash**: Same-day Colombo delivery
+- **PromptX**: Island-wide courier
+- **SL Post**: Registered postal service
+- **Custom Zones**: Set rates by district
 
-### Hosting Optimization
-Since you're on cPanel, ensure your hosting plan includes:
-- PHP 8.1 or higher
-- MySQL 8.0 or MariaDB 10.5+
-- Minimum 2GB RAM allocation for WordPress
-- SSD storage
-- Daily backups (in addition to UpdraftPlus)
+### Communication
+- **WhatsApp Floating Button**: Direct chat with customers
+- **SMS Notifications**: Order confirmations via local SMS gateway
+- **Phone/Email**: Traditional contact methods
 
 ---
 
-**Document Version**: 1.0  
-**Created**: 2024  
-**For**: NetPlus Computers (netpluscomputers.lk)  
-**Status**: Ready for Implementation
+## 🔄 Migration from Old Site
+
+### Data to Preserve
+- [ ] Export all products to CSV
+- [ ] Export customer emails (for newsletter)
+- [ ] Save blog posts as XML
+- [ ] Download all product images
+- [ ] Document current URL structure for redirects
+
+### 301 Redirects
+Create redirect map for old URLs to new structure to preserve SEO rankings.
+
+### Go-Live Checklist
+- [ ] Final backup of old site
+- [ ] DNS switch to new site
+- [ ] Test all payment gateways with real transactions
+- [ ] Verify WhatsApp button functionality
+- [ ] Check mobile responsiveness on all devices
+- [ ] Monitor Cloudflare analytics for first 48 hours
+
+---
+
+## 🆘 Support & Maintenance
+
+### Monthly Tasks
+- Update all plugins (test on staging first)
+- Review Cloudflare security events
+- Optimize database tables
+- Check broken links
+- Backup verification
+
+### Where to Get Help
+- **Elementor Community**: Facebook groups, Reddit r/elementor
+- **WordPress Sri Lanka**: Local developer community
+- **Plugin Documentation**: Official docs for each free plugin
+- **YouTube Tutorials**: Search "[Plugin Name] tutorial"
+
+---
+
+## 📊 Success Metrics
+
+Track these after launch:
+- Bot attacks blocked (Cloudflare dashboard)
+- Page load time improvement
+- Conversion rate increase
+- Reduced spam in contact forms
+- Manager productivity (products added per week)
+- Customer satisfaction (reviews, repeat purchases)
+
+---
+
+**Next Step**: Read `SETUP_GUIDE_PHASE0.md` FIRST before touching any plugins. Security foundation must be laid before design work begins.

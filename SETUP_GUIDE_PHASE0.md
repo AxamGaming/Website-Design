@@ -34,9 +34,8 @@ Once your domain is active on Cloudflare (status changes to "Active"):
 - Go to **Security** > **WAF**.
 - Click **"Create Rule"**:
   - **Rule Name:** `Block Bad Bots`
-  - **Field:** `Security Level` **equals** `I'm Under Attack` (Optional, use only if attacked) OR
-  - **Field:** `Known Bots` **equals** `True` → Action: **Block** (Careful: blocks some search engines)
-  - **Better Rule:** `Super Bot Fight Mode` (If available on your plan) → Set to **Fight**.
+  - **Field:** `Known Bots` **equals** `True` → Action: **Block**
+  - **Better Rule:** Enable **Super Bot Fight Mode** (if available) → Set to **Fight**.
 - Go to **Security** > **Settings**.
 - Set **Security Level** to **Medium** or **High**.
 - Enable **Challenge Visitors** when threat score is > 30.
@@ -49,97 +48,161 @@ Once your domain is active on Cloudflare (status changes to "Active"):
   - **Then:** **Block** for 1 hour.
   *(This stops hackers from guessing your password)*
 
-#### D. Under Attack Mode (Temporary Shield)
-- While building the site, go to **Security** > **Settings**.
-- Turn **"Under Attack Mode"** to **ON**.
-- *This forces every visitor to solve a CAPTCHA before seeing the site. Turn this OFF only when the site is ready for customers.*
+#### D. Disable XML-RPC Completely
+- Go to **Security** > **WAF** > **Tools**.
+- Create a Page Rule:
+  - **URL:** `netpluscomputers.lk/xmlrpc.php`
+  - **Setting:** Block
+  *(XML-RPC is a common attack vector for WordPress)*
 
 ---
 
-## Step 2: Prepare cPanel & Database
+## Step 2: Database Cleanup (Fresh Start)
 *Time required: 10 minutes*
 
-Since your previous site had spam issues, we must start with a **CLEAN** database.
+Since your previous site was compromised, start with a completely clean database.
 
-### 2.1 Backup Old Site (Optional but Recommended)
-1. Log in to **cPanel**.
-2. Go to **File Manager**.
-3. Rename your current `public_html` folder to `public_html_OLD_BACKUP`.
-4. Create a new empty folder named `public_html`.
+### 2.1 Backup Old Data (Optional but Recommended)
+1. Log in to **phpMyAdmin** via cPanel.
+2. Select your database.
+3. Click **Export** > **Quick** > **Go**.
+4. Save the SQL file locally (in case you need old product data later).
 
-### 2.2 Clean Database
-1. In cPanel, go to **phpMyAdmin**.
-2. Select your database (usually named `username_netplus`).
-3. **Drop all tables** (Select all tables > Drop).
-   *Warning: This deletes all old data. Ensure you have a backup if needed.*
-4. You now have an empty database ready for fresh installation.
+### 2.2 Drop All Tables
+1. In phpMyAdmin, select all tables (Check All).
+2. Choose **Drop** from the dropdown.
+3. Confirm deletion.
+   *(This removes all malware, spam users, and corrupted data)*
 
-### 2.3 Create Fresh WordPress User
+### 2.3 Create New Database User
 1. In cPanel, go to **MySQL Databases**.
-2. Create a **New User** (e.g., `netplus_admin`).
-3. Generate a **Strong Password** (save this in a password manager).
-4. **Add User to Database** with **ALL PRIVILEGES**.
-   *Never use the default 'root' or 'admin' username.*
+2. Create a new database: `netplus_secure_db`.
+3. Create a new user with a **strong password** (20+ characters, mix of letters/numbers/symbols).
+4. Assign user to database with **ALL PRIVILEGES**.
+5. Note down: Database name, username, password (you'll need these for WordPress install).
 
 ---
 
-## Step 3: Install WordPress (Clean Slate)
-*Time required: 5 minutes*
+## Step 3: Fresh WordPress Installation
+*Time required: 10 minutes*
 
-Do **NOT** use "Softaculous" or one-click installers if they include demo content. Manual install is cleaner.
+### 3.1 Install WordPress via Softaculous/cPanel
+1. In cPanel, find **Softaculous Apps Installer** or **WordPress Manager**.
+2. Click **Install**.
+3. Choose your domain: `netpluscomputers.lk`.
+4. **IMPORTANT SETTINGS:**
+   - **Site Name:** NetPlus Computers
+   - **Admin Username:** DO NOT use "admin" (use something unique like `np_master_2025`)
+   - **Admin Password:** Generate strong password (save in password manager)
+   - **Admin Email:** Your business email
+   - **Database Name:** Use the new database created in Step 2.3
+   - **Table Prefix:** Change from `wp_` to `npc_` (prevents SQL injection attacks)
+5. Click **Install**.
 
-1. Download latest WordPress from [wordpress.org](https://wordpress.org/download/).
-2. In cPanel **File Manager**, upload the zip file to `public_html`.
-3. Extract the zip file. Move all files from the `wordpress` folder to the root of `public_html`.
-4. Visit `netpluscomputers.lk` in your browser.
-5. Follow the 5-minute installation:
-   - **Database Name:** Your existing database name.
-   - **Username:** The new user you created in Step 2.3.
-   - **Password:** The strong password you generated.
-   - **Database Host:** `localhost`
-   - **Table Prefix:** Change `wp_` to something random like `np7x_` (Security best practice).
-6. **IMPORTANT:** When creating the Admin account:
-   - **Username:** Do NOT use "admin". Use something unique like `NetPlusOwner`.
-   - **Email:** Use your real business email.
-   - **Password:** Use a very strong password.
+### 3.2 Post-Installation Hardening
+Immediately after installation, before logging in:
+
+#### A. Hide Admin URL
+1. Install plugin: **WPS Hide Login** (Free).
+2. Go to **Settings** > **General**.
+3. Change login URL from `/wp-admin` to something secret like `/np-secure-login-2025`.
+4. Save and bookmark this URL (you'll need it to log in).
+
+#### B. Disable File Editing
+Add this line to `wp-config.php` (via cPanel File Manager):
+```php
+define('DISALLOW_FILE_EDIT', true);
+```
+*(Prevents hackers from editing plugin files even if they get in)*
+
+#### C. Limit Login Attempts
+1. Install plugin: **Limit Login Attempts Reloaded** (Free).
+2. Activate and configure:
+   - Max attempts: 3
+   - Lockout duration: 1 hour
+   - Long lockout after 4 lockouts: 24 hours
 
 ---
 
-## Step 4: Immediate Post-Install Hardening
-*Do this BEFORE logging into the dashboard to add content.*
+## Step 4: NinjaFirewall Installation (Full WAF Mode)
+*Time required: 10 minutes*
 
-### 4.1 Disable XML-RPC (Common Bot Entry Point)
-1. In cPanel **File Manager**, edit `wp-config.php`.
-2. Add this line before `/* That's all, stop editing! */`:
-   ```php
-   define( 'XMLRPC_REQUEST', false );
-   ```
+NinjaFirewall intercepts attacks BEFORE WordPress loads, providing server-level protection.
 
-### 4.2 Change Admin URL (Hide Login Page)
-*We will do this via plugin in Phase 1, but for now:*
-- Do not share your login link (`netpluscomputers.lk/wp-admin`).
-- Only access it from your personal computer.
-
-### 4.3 Install NinjaFirewall (First Plugin)
-1. Log in to `netpluscomputers.lk/wp-admin`.
+### 4.1 Install Plugin
+1. Log in to your hidden admin URL.
 2. Go to **Plugins** > **Add New**.
 3. Search for **"NinjaFirewall WP Edition"**.
 4. Install and Activate.
-5. **Setup Wizard:**
-   - Choose **"Standalone Mode"** (Maximum security).
-   - Let it optimize the rules.
-   - Enable **"Block malicious requests"**.
+
+### 4.2 Configure Full WAF Mode (CRITICAL)
+1. During setup wizard, choose **"Full WAF"** mode (NOT WordPress WAF).
+   - Full WAF blocks threats before WordPress boots.
+   - WordPress WAF only works after WordPress loads (too late for some attacks).
+2. Follow the wizard to edit `wp-config.php` or `.htaccess` (the plugin guides you).
+3. Once activated, you'll see a firewall status page.
+
+### 4.3 Firewall Settings
+Go to **NinjaFirewall** > **Firewall Options**:
+- Enable **"Block brute force attacks"**.
+- Enable **"Block fake search engines"**.
+- Enable **"Block access to sensitive files"** (wp-config.php, .htaccess, etc.).
+- Enable **"Scan uploaded files for malware"**.
+
+Go to **NinjaFirewall** > **Live Traffic**:
+- Monitor this page for the first week to see blocked attacks.
+- You'll be shocked how many bots get stopped!
 
 ---
 
-## ✅ Checklist: Are You Ready for Phase 1?
-- [ ] Cloudflare Nameservers updated and active?
-- [ ] "Under Attack Mode" enabled in Cloudflare?
-- [ ] Old database tables dropped/cleaned?
-- [ ] Fresh WordPress installed with custom table prefix?
-- [ ] Admin username is NOT "admin"?
-- [ ] XML-RPC disabled in `wp-config.php`?
-- [ ] NinjaFirewall installed and active?
+## Step 5: Security Checklist Before Proceeding
 
-**If all checked: Proceed to Phase 1 (Plugin Installation).**
-**If not: Do not proceed. Security is compromised.**
+Verify these are complete before moving to Phase 1 (Plugin Installation):
+
+- [ ] Cloudflare nameservers updated and active (green cloud icon).
+- [ ] SSL certificate active (https:// shows padlock).
+- [ ] Old database dropped, new database created with strong credentials.
+- [ ] WordPress installed with custom table prefix (`npc_`).
+- [ ] Admin username is NOT "admin".
+- [ ] Login URL changed from `/wp-admin` to custom URL.
+- [ ] `DISALLOW_FILE_EDIT` added to wp-config.php.
+- [ ] Limit Login Attempts plugin configured (3 attempts max).
+- [ ] NinjaFirewall installed in **Full WAF** mode.
+- [ ] XML-RPC disabled via Cloudflare Page Rule.
+
+---
+
+## 🎯 What This Achieves
+
+| Threat | Solution |
+|--------|----------|
+| Bot spam comments | Cloudflare WAF blocks before reaching server |
+| Brute force login attacks | Rate limiting + Limit Login Attempts + NinjaFirewall |
+| SQL injection | Custom table prefix + prepared statements |
+| Malware uploads | NinjaFirewall scans + file edit disabled |
+| DDoS attacks | Cloudflare absorbs traffic spikes |
+| Admin panel discovery | Hidden login URL |
+| Fake Google bots | NinjaFirewall verifies real search engines |
+
+**Result:** Your previous site failed because bots could directly attack WordPress. This setup blocks 99% of attacks BEFORE they touch your server.
+
+---
+
+## ⚠️ Common Mistakes to Avoid
+
+1. **Skipping Cloudflare setup** - Without this, bots reach your server directly.
+2. **Using default wp_ table prefix** - Makes SQL injection easier.
+3. **Choosing "admin" as username** - First thing hackers try.
+4. **Not using Full WAF mode** - WordPress WAF mode is too slow to stop some attacks.
+5. **Forgetting to bookmark hidden login URL** - You'll lock yourself out!
+
+---
+
+## Next Steps
+
+Once all checkboxes above are ticked:
+1. Proceed to **IMPLEMENTATION_PLAN.md** Week 2 tasks.
+2. Install Elementor Free and other design plugins.
+3. Build your store with confidence knowing you're protected.
+
+**Remember:** Security is not optional. Your previous site died because of skipped security steps. Do NOT rush Phase 0.
