@@ -10,7 +10,7 @@ Rebuilding netpluscomputers.lk with a **100% Free WordPress Stack** that solves 
 - [x] Drag-and-drop page building (Elementor-style control)
 - [x] Product grid customization (column sizes, layouts)
 - [x] Icon/button resizing and styling
-- [x] WhatsApp contact integration
+- [x] **Live Chat & WhatsApp Integration** (Like reference sites)
 - [x] Product reviews system
 - [x] Shopping cart & checkout
 - [x] Sri Lankan payment gateways (PayHere, DirectPay)
@@ -47,6 +47,11 @@ Rebuilding netpluscomputers.lk with a **100% Free WordPress Stack** that solves 
 | **Cloudflare (Free Plan)** | DNS-level bot blocking before traffic reaches server | Free |
 | **NinjaFirewall WP Edition** | Server-level WAF intercepting threats before WordPress loads | Free |
 
+### 💬 Live Chat & Communication
+| Plugin | Purpose | Cost |
+|--------|---------|------|
+| **Tidio Live Chat** (Free Plan) OR **Click-to-Chat** | Floating chat bubble for WhatsApp/Live Support | Free |
+
 ---
 
 ## 📅 Implementation Timeline (5 Weeks)
@@ -57,10 +62,11 @@ Rebuilding netpluscomputers.lk with a **100% Free WordPress Stack** that solves 
 - [ ] Install NinjaFirewall in "Full WAF" mode
 - [ ] Configure Cloudflare firewall rules for Sri Lankan traffic
 - [ ] Set up SSL certificates via Cloudflare
+- [ ] **Create Cloudflare Page Rule to block /wp-login.php**
 
 ### Week 2: Core Installation & Configuration
 - [ ] Install Elementor Free + Header & Footer Builder
-- [ ] Install Essential Addons (disable unused widgets for speed)
+- [ ] Install Essential Addons (**Disable unused widgets for speed**)
 - [ ] Install ShopEngine + WooCommerce
 - [ ] Configure Sri Lankan payment gateways (PayHere/DirectPay)
 - [ ] Set up local delivery zones (Colombo, Kandy, Galle, etc.)
@@ -79,13 +85,13 @@ Rebuilding netpluscomputers.lk with a **100% Free WordPress Stack** that solves 
 - [ ] Customize product grid layouts (3-column, 4-column options)
 - [ ] Style single product pages with spec tables
 - [ ] Build cart and checkout pages with ShopEngine
+- [ ] **Integrate Chat Widget (Tidio/WhatsApp) matching reference sites**
 
 ### Week 5: User Roles & Testing
 - [ ] Configure User Role Editor for Admin/Manager/Customer roles
 - [ ] Set up Manager permissions (products, orders, blogs only)
 - [ ] Test customer registration, login, and ordering flow
 - [ ] Implement product review system
-- [ ] Add WhatsApp floating button
 - [ ] Final security audit and performance optimization
 - [ ] Launch and monitor Cloudflare analytics for bot blocking
 
@@ -112,10 +118,11 @@ Rebuilding netpluscomputers.lk with a **100% Free WordPress Stack** that solves 
 1. **Cloudflare Layer**: Blocks 99% of bot traffic at DNS level before reaching your server
 2. **NinjaFirewall Full WAF**: Intercepts remaining threats before WordPress boots
 3. **Hidden Admin URL**: Prevents brute force attacks on wp-admin
-4. **Login Attempt Limits**: Blocks IP after 3 failed attempts
-5. **reCAPTCHA v3**: Invisible protection on login, registration, and checkout forms
-6. **Two-Factor Authentication**: Optional for admin accounts
-7. **Regular Security Scans**: Automated malware detection
+4. **Cloudflare Block Rule**: Specifically blocks `/wp-login.php` to save server resources
+5. **Login Attempt Limits**: Blocks IP after 3 failed attempts
+6. **reCAPTCHA v3**: Invisible protection on login, registration, and checkout forms
+7. **Two-Factor Authentication**: Optional for admin accounts
+8. **Regular Security Scans**: Automated malware detection
 
 ### Why This Solves Your Previous Problem
 Your last site failed because bots could directly attack WordPress vulnerabilities. This new stack:
@@ -148,6 +155,42 @@ Your last site failed because bots could directly attack WordPress vulnerabiliti
 - ❌ Limited motion effects (covered by Essential Addons)
 
 **Solution**: ShopEngine + Essential Addons covers 95% of Pro features for free.
+
+---
+
+## 💬 Live Chat & WhatsApp Integration
+
+### Design Inspiration
+Refer to these Sri Lankan tech sites for chat placement and behavior:
+- **MD Computers** (mdcomputers.lk): Floating WhatsApp button bottom-right.
+- **Alphatronic** (alphatronic.lk): Quick inquiry popup on product pages.
+- **Scion Electronics** (scionelectronics.com): Direct contact links in header/footer.
+- **Duino** (duino.lk): Clean chat interface for support.
+
+### Implementation Strategy
+We will replicate this functionality using free tools:
+
+1. **Floating WhatsApp Button (Primary Method)**
+   - **Plugin**: **Click-to-Chat** or **Join.chat** (Free).
+   - **Function**: A floating WhatsApp icon stays fixed at the bottom-right of the screen.
+   - **Action**: Clicking it opens WhatsApp Web (desktop) or the App (mobile) with a pre-filled message like *"Hi NetPlus, I'm interested in..."*.
+   - **Customization**: Match the green brand color, set custom greeting, and hide on mobile if preferred.
+
+2. **Live Chat Widget (Secondary Method)**
+   - **Plugin**: **Tidio Live Chat** (Free Plan up to 50 conversations/month).
+   - **Function**: Provides a chat bubble that opens a small window on the site.
+   - **Features**: 
+     - Automated greetings ("Hi! Need help finding a motherboard?").
+     - Offline mode (collects email if you are away).
+     - Mobile responsive.
+   - **Integration**: Connects to your email or mobile app for real-time replies.
+
+### Setup Steps (Week 4)
+1. Install **Click-to-Chat**.
+2. Enter your Sri Lankan WhatsApp number (+94...).
+3. Customize the icon to match your site colors.
+4. Set position to "Bottom Right".
+5. Test on Mobile and Desktop to ensure it doesn't overlap the "Add to Cart" button.
 
 ---
 
@@ -214,14 +257,14 @@ Your last site failed because bots could directly attack WordPress vulnerabiliti
 - Place orders and track delivery
 - Leave product reviews
 - Manage profile and order history
-- Contact via WhatsApp
+- Contact via WhatsApp/Chat
 
 ---
 
 ## 🚀 Performance Optimization
 
 ### Speed Enhancements
-- **Disable unused widgets in Essential Addons and ShopEngine** (Critical for speed)
+- **Disable unused widgets in Essential Addons and ShopEngine** (Critical for speed). Go to their settings and toggle OFF anything you don't use to prevent code bloat.
 - Enable Cloudflare Auto Minify (CSS, JS, HTML)
 - Use WebP image format via free plugin
 - Implement lazy loading for images
@@ -251,6 +294,7 @@ Your last site failed because bots could directly attack WordPress vulnerabiliti
 
 ### Communication
 - **WhatsApp Floating Button**: Direct chat with customers
+- **Live Chat Widget**: Real-time support (Tidio)
 - **SMS Notifications**: Order confirmations via local SMS gateway
 - **Phone/Email**: Traditional contact methods
 
@@ -272,7 +316,7 @@ Create redirect map for old URLs to new structure to preserve SEO rankings.
 - [ ] Final backup of old site
 - [ ] DNS switch to new site
 - [ ] Test all payment gateways with real transactions
-- [ ] Verify WhatsApp button functionality
+- [ ] Verify WhatsApp/Chat button functionality
 - [ ] Check mobile responsiveness on all devices
 - [ ] Monitor Cloudflare analytics for first 48 hours
 
