@@ -1,1 +1,4 @@
-Nothing to output - the change list contains only a markdown file (IMPLEMENTATION_PLAN.md) which is a source/config file and should not be ignored.
+```
+# Documentation
+SETUP_GUIDE_PHASE0.md
+```
