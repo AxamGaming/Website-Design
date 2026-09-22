@@ -1,0 +1,41 @@
+/**
+ * Gutenberg editor styles — approximates front-end look inside the editor.
+ */
+.editor-styles-wrapper {
+	font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	font-size: 15px;
+	line-height: 1.7;
+	color: #1b2434;
+}
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4,
+.editor-styles-wrapper h5,
+.editor-styles-wrapper h6 {
+	font-family: "Sora", "Inter", system-ui, sans-serif;
+	font-weight: 700;
+	line-height: 1.25;
+	color: #0a101f;
+	letter-spacing: -0.01em;
+}
+.editor-styles-wrapper h1 { font-size: 2.2rem; }
+.editor-styles-wrapper h2 { font-size: 1.8rem; }
+.editor-styles-wrapper h3 { font-size: 1.3rem; }
+.editor-styles-wrapper a { color: #2f6bff; }
+.editor-styles-wrapper blockquote {
+	border-left: 4px solid #2f6bff;
+	background: #e8efff;
+	padding: 14px 20px;
+	border-radius: 0 10px 10px 0;
+}
+.editor-styles-wrapper table { width: 100%; border-collapse: collapse; }
+.editor-styles-wrapper th,
+.editor-styles-wrapper td { border: 1px solid #e4e9f2; padding: 10px 14px; text-align: left; }
+.editor-styles-wrapper th { background: #f4f6fb; font-family: "Sora", sans-serif; }
+.editor-styles-wrapper .wp-block-button__link {
+	background: linear-gradient(135deg, #2f6bff, #4d84ff);
+	border-radius: 10px;
+	font-weight: 600;
+}
+.editor-styles-wrapper img { border-radius: 10px; }
