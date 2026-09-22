@@ -1,99 +1,94 @@
 # NetPlus Computers - Website Rebuild Implementation Plan
+**Strategy: Local-First Development → Secure Migration**
 
 ## 🎯 Project Overview
-Rebuilding netpluscomputers.lk with a **100% Free WordPress Stack** that solves previous bot spam issues while maintaining easy product/blog management and full design control.
+Rebuilding netpluscomputers.lk with a **100% Free WordPress Stack**. 
+- **Phase 1-4:** Build entirely on your local computer (Zero risk to live site).
+- **Phase 5:** Migrate to live hosting only when approved.
+- **Goal:** Solve bot spam issues, enable easy product management, and achieve Elementor-style design control without annual plugin fees.
 
 ## ✅ Core Requirements Met
-- [x] Easy product addition/editing (no coding required)
-- [x] Blog post management with visual editor
-- [x] Multi-role accounts (Admin, Manager, Customer)
-- [x] Drag-and-drop page building (Elementor-style control)
-- [x] Product grid customization (column sizes, layouts)
-- [x] Icon/button resizing and styling
-- [x] **Live Chat & WhatsApp Integration** (Like reference sites)
-- [x] Product reviews system
-- [x] Shopping cart & checkout
-- [x] Sri Lankan payment gateways (PayHere, DirectPay)
-- [x] Local delivery integration (PickMe, PromptX, SL Post)
-- [x] **Enterprise-grade security against bot spam**
-- [x] **Zero annual plugin costs** (~25,000 LKR/year total hosting only)
+- [x] **Safe Development:** No changes to live database/site until migration.
+- [x] Easy product addition/editing (No coding).
+- [x] Blog post management with visual editor.
+- [x] Multi-role accounts (Admin, Manager, Customer).
+- [x] Drag-and-drop page building (Elementor-style).
+- [x] Product grid customization (columns, layouts).
+- [x] WhatsApp contact integration & Live Chat.
+- [x] Sri Lankan payment gateways (PayHere, DirectPay).
+- [x] Enterprise-grade security (Cloudflare + NinjaFirewall).
+- [x] **Zero annual plugin costs** (~25,000 LKR/year hosting only).
 
 ---
 
-## 🛠️ Complete Free Plugin Stack
+## 🛠️ Complete Free Plugin Stack (Local & Live)
 
 ### 🎨 Page Building & Design
 | Plugin | Purpose | Cost |
 |--------|---------|------|
-| **Elementor Free** | Core drag-and-drop canvas for all page design | Free |
-| **Header & Footer Builder** (Brainstorm Force) | Custom headers/footers inside Elementor | Free |
-| **Essential Addons for Elementor** | Motion effects, advanced widgets, dynamic grids | Free |
-| **ShopEngine** | Full WooCommerce page builder (cart, checkout, product pages) | Free |
+| **Elementor Free** | Core drag-and-drop canvas | Free |
+| **Header & Footer Builder** | Custom headers/footers | Free |
+| **Essential Addons for Elementor** | Advanced widgets, grids, motion effects | Free |
+| **ShopEngine** | WooCommerce builder (Cart, Checkout, Product) | Free |
 
-### 🗃️ Custom Fields & Dynamic Content
+### 🗃️ Custom Fields & Data
 | Plugin | Purpose | Cost |
 |--------|---------|------|
-| **Pods Framework** | Custom post types, taxonomies, custom fields, relationships | Free |
-| **Secure Custom Fields (SCF)** | Simple product spec tables (ACF replacement) | Free |
+| **Pods Framework** | Custom post types, complex fields, relationships | Free |
+| **Secure Custom Fields (SCF)** | Simple spec tables (ACF alternative) | Free |
 
-### 👥 User Roles & Permissions
+### 👥 Roles & Security
 | Plugin | Purpose | Cost |
 |--------|---------|------|
-| **User Role Editor** | Create Manager/Admin roles with granular capabilities | Free |
-
-### 🔒 Security (Critical for Bot Prevention)
-| Solution | Purpose | Cost |
-|----------|---------|------|
-| **Cloudflare (Free Plan)** | DNS-level bot blocking before traffic reaches server | Free |
-| **NinjaFirewall WP Edition** | Server-level WAF intercepting threats before WordPress loads | Free |
-
-### 💬 Live Chat & Communication
-| Plugin | Purpose | Cost |
-|--------|---------|------|
-| **Tidio Live Chat** (Free Plan) OR **Click-to-Chat** | Floating chat bubble for WhatsApp/Live Support | Free |
+| **User Role Editor** | Granular Admin/Manager permissions | Free |
+| **NinjaFirewall WP Ed.** | Server-level WAF (Blocks bots before WP loads) | Free |
+| **WPS Hide Login** | Hides admin URL from bots | Free |
 
 ---
 
 ## 📅 Implementation Timeline (5 Weeks)
 
-### Week 1: Security Foundation & Setup
-- [ ] **Phase 0**: Cloudflare DNS setup (BEFORE any plugin installation)
-- [ ] **Phase 0**: Database cleanup from previous bot attacks
-- [ ] Install NinjaFirewall in "Full WAF" mode
-- [ ] Configure Cloudflare firewall rules for Sri Lankan traffic
-- [ ] Set up SSL certificates via Cloudflare
-- [ ] **Create Cloudflare Page Rule to block /wp-login.php**
+### Week 1: Local Environment & Security (CURRENT PHASE)
+- [ ] **Install LocalWP** on your computer.
+- [ ] **Create Local Site** (`netplus-new.local`).
+- [ ] **Install Security Plugins** (NinjaFirewall, WPS Hide Login).
+- [ ] **Configure Hidden Login URL** (`/np-secure-login-2025`).
+- [ ] **Verify** live site is untouched.
 
-### Week 2: Core Installation & Configuration
-- [ ] Install Elementor Free + Header & Footer Builder
-- [ ] Install Essential Addons (**Disable unused widgets for speed**)
-- [ ] Install ShopEngine + WooCommerce
-- [ ] Configure Sri Lankan payment gateways (PayHere/DirectPay)
-- [ ] Set up local delivery zones (Colombo, Kandy, Galle, etc.)
+### Week 2: Core Installation & Design (Local)
+- [ ] Install Elementor Free + Header & Footer Builder.
+- [ ] Install Essential Addons (**Disable unused widgets** for speed).
+- [ ] Install ShopEngine + WooCommerce.
+- [ ] **Design Homepage:** Hero section, Featured Products, Categories.
+- [ ] **Design Header/Footer:** Logo, Nav, WhatsApp Button, Cart Icon.
+- [ ] **Build Product Templates:** Single product page layout with Spec Tables.
 
-### Week 3: Data Architecture
-- [ ] Configure Pods Framework for product specifications
-- [ ] Create custom fields for computer parts (RAM, CPU socket, etc.)
-- [ ] Set up Secure Custom Fields for simple spec tables
-- [ ] Import existing product data via CSV
-- [ ] Test dynamic content display
+### Week 3: Data Architecture & Content (Local)
+- [ ] Configure **Pods Framework** for Computer Parts specs (Socket, RAM, etc.).
+- [ ] Create **User Roles**: Admin (Full), Manager (Products/Orders only).
+- [ ] **Import Dummy Data:** Add 5-10 sample products and blog posts manually to test layout.
+- [ ] Test **Mobile Responsiveness** using LocalWP preview tools.
 
-### Week 4: Design & Layout
-- [ ] Build custom header with logo, navigation, search, cart icon
-- [ ] Design footer with contact info, WhatsApp button, social links
-- [ ] Create homepage layout with featured products, categories, blog section
-- [ ] Customize product grid layouts (3-column, 4-column options)
-- [ ] Style single product pages with spec tables
-- [ ] Build cart and checkout pages with ShopEngine
-- [ ] **Integrate Chat Widget (Tidio/WhatsApp) matching reference sites**
+### Week 4: Functionality & Integrations (Local)
+- [ ] **Chat Integration:** Install **Tidio** (Free) or **Click-to-Chat** for WhatsApp.
+  - *Reference:* Mimic floating button style from `mdcomputers.lk` and `alphatronic.lk`.
+- [ ] **Review System:** Enable WooCommerce native reviews.
+- [ ] **Search & Filter:** Configure product filtering by category/price.
+- [ ] **Optimization:** Run performance checks (ensure <2s load time locally).
 
-### Week 5: User Roles & Testing
-- [ ] Configure User Role Editor for Admin/Manager/Customer roles
-- [ ] Set up Manager permissions (products, orders, blogs only)
-- [ ] Test customer registration, login, and ordering flow
-- [ ] Implement product review system
-- [ ] Final security audit and performance optimization
-- [ ] Launch and monitor Cloudflare analytics for bot blocking
+### Week 5: Migration & Go-Live
+- [ ] **Backup Live Site:** Full backup of current `netpluscomputers.lk` via cPanel.
+- [ ] **Migrate Local to Live:** 
+  - Use **All-in-One WP Migration** or **Duplicator** plugin.
+  - Export local site package.
+  - Install fresh WordPress in a **subdirectory** (`netpluscomputers.lk/new`) on cPanel.
+  - Import package to subdirectory.
+- [ ] **Test in Subdirectory:** Verify everything works at `.lk/new`.
+- [ ] **Cloudflare Setup:** 
+  - Switch Nameservers to Cloudflare.
+  - Add Rule: Block `/wp-login.php`.
+- [ ] **Final Switch:** Move new site from `/new` to root (replacing old site) OR update DNS to point to new location.
+- [ ] **Monitor:** Watch Cloudflare analytics for blocked bots.
 
 ---
 
@@ -103,252 +98,93 @@ Rebuilding netpluscomputers.lk with a **100% Free WordPress Stack** that solves 
 |------|-------------------|
 | Domain renewal | ~3,500 |
 | Hosting (cPanel) | ~20,000 |
-| Cloudflare Pro (optional upgrade) | ~0-6,000 |
 | **All Plugins** | **FREE** |
-| **Total** | **~23,500 - 29,500 LKR/year** |
+| **Total** | **~23,500 LKR/year** |
 
-**Previous failed site cost**: 15,000+ LKR (one-time) + lost revenue from bot attacks  
-**New site savings**: ~110,000 LKR/year vs premium plugin stack
+**Savings:** ~110,000 LKR/year compared to premium stack.
 
 ---
 
 ## 🔐 Security Features (Bot Spam Solution)
 
 ### Multi-Layer Protection
-1. **Cloudflare Layer**: Blocks 99% of bot traffic at DNS level before reaching your server
-2. **NinjaFirewall Full WAF**: Intercepts remaining threats before WordPress boots
-3. **Hidden Admin URL**: Prevents brute force attacks on wp-admin
-4. **Cloudflare Block Rule**: Specifically blocks `/wp-login.php` to save server resources
-5. **Login Attempt Limits**: Blocks IP after 3 failed attempts
-6. **reCAPTCHA v3**: Invisible protection on login, registration, and checkout forms
-7. **Two-Factor Authentication**: Optional for admin accounts
-8. **Regular Security Scans**: Automated malware detection
+1. **Local Development:** Bots cannot attack what isn't online yet.
+2. **NinjaFirewall (Full WAF):** Stops SQL injection and malware uploads immediately upon migration.
+3. **Hidden Admin URL:** Bots scanning `/wp-admin` get a 404 error.
+4. **Cloudflare (Post-Migration):** Blocks 99% of bot traffic at the DNS level before it hits your server.
+5. **Login Limits:** Locks out IPs after 3 failed attempts.
 
 ### Why This Solves Your Previous Problem
-Your last site failed because bots could directly attack WordPress vulnerabilities. This new stack:
-- Stops bots at Cloudflare (before they touch your server)
-- Blocks SQL injection attempts at firewall level
-- Prevents brute force attacks with login limits
-- Hides admin panel from public access
-- Uses prepared statements to prevent database attacks
+Your last site was attacked directly because it was exposed. This workflow builds behind a wall (your computer) and only exposes a hardened fortress to the internet when ready.
 
 ---
 
 ## 🎨 Design Control Features
 
 ### What You Can Customize (No Coding)
-- ✅ Move products anywhere on pages with drag-and-drop
-- ✅ Change product grid columns (2, 3, 4, 5 columns)
-- ✅ Resize icons, buttons, images visually
-- ✅ Modify colors, fonts, spacing globally
-- ✅ Build custom headers/footers with visual builder
-- ✅ Create unique product page layouts
-- ✅ Add motion effects and animations
-- ✅ Toggle sections on/off per page
-- ✅ Build custom blog post templates
-- ✅ Design category archive pages
+- ✅ **Move Elements:** Drag products, text, images anywhere.
+- ✅ **Grid Control:** Switch between 2, 3, 4 columns instantly.
+- ✅ **Styling:** Resize icons, buttons, fonts visually.
+- ✅ **Templates:** Save custom product layouts for different categories (e.g., Motherboards vs. Keyboards).
 
-### Limitations vs Elementor Pro
-- ❌ No theme builder (can't edit archive templates visually without workarounds)
-- ❌ No popup builder (use free alternative: "Popup Maker")
-- ❌ No WooCommerce builder built-in (solved by ShopEngine)
-- ❌ Limited motion effects (covered by Essential Addons)
-
-**Solution**: ShopEngine + Essential Addons covers 95% of Pro features for free.
+### Design Inspiration References
+Use these sites for layout ideas (to be replicated with Elementor):
+- **mdcomputers.lk:** Clean category grids, prominent search.
+- **alphatronic.lk:** Detailed product specs tables, sidebar filters.
+- **scionelectronics.com:** Banner sliders, featured deals section.
+- **duino.lk:** Simplified checkout flow, tech blog integration.
 
 ---
 
-## 💬 Live Chat & WhatsApp Integration
+## 📦 Product & Blog Management Workflow
 
-### Design Inspiration
-Refer to these Sri Lankan tech sites for chat placement and behavior:
-- **MD Computers** (mdcomputers.lk): Floating WhatsApp button bottom-right.
-- **Alphatronic** (alphatronic.lk): Quick inquiry popup on product pages.
-- **Scion Electronics** (scionelectronics.com): Direct contact links in header/footer.
-- **Duino** (duino.lk): Clean chat interface for support.
+### Adding Products
+1. **Products > Add New**.
+2. Enter Title, Price, Description.
+3. **Pods Fields:** Fill in technical specs (appears in a neat table on frontend).
+4. **Image:** Drag and drop.
+5. **Publish**.
 
-### Implementation Strategy
-We will replicate this functionality using free tools:
-
-1. **Floating WhatsApp Button (Primary Method)**
-   - **Plugin**: **Click-to-Chat** or **Join.chat** (Free).
-   - **Function**: A floating WhatsApp icon stays fixed at the bottom-right of the screen.
-   - **Action**: Clicking it opens WhatsApp Web (desktop) or the App (mobile) with a pre-filled message like *"Hi NetPlus, I'm interested in..."*.
-   - **Customization**: Match the green brand color, set custom greeting, and hide on mobile if preferred.
-
-2. **Live Chat Widget (Secondary Method)**
-   - **Plugin**: **Tidio Live Chat** (Free Plan up to 50 conversations/month).
-   - **Function**: Provides a chat bubble that opens a small window on the site.
-   - **Features**: 
-     - Automated greetings ("Hi! Need help finding a motherboard?").
-     - Offline mode (collects email if you are away).
-     - Mobile responsive.
-   - **Integration**: Connects to your email or mobile app for real-time replies.
-
-### Setup Steps (Week 4)
-1. Install **Click-to-Chat**.
-2. Enter your Sri Lankan WhatsApp number (+94...).
-3. Customize the icon to match your site colors.
-4. Set position to "Bottom Right".
-5. Test on Mobile and Desktop to ensure it doesn't overlap the "Add to Cart" button.
+### Managing Blogs
+1. **Posts > Add New**.
+2. Use visual editor for tech updates.
+3. Categorize (News, Reviews, Guides).
 
 ---
 
-## 📦 Product Management Workflow
+## 🚀 Migration Strategy (Critical Step)
 
-### Adding New Products (Same as WordPress)
-1. Go to **Products → Add New** in admin dashboard
-2. Enter product name, description, price
-3. Upload images via drag-and-drop media library
-4. Select category (Motherboards, Keyboards, Webcams, etc.)
-5. Add specifications using Pods custom fields:
-   - Socket type (for motherboards)
-   - RAM capacity
-   - Compatibility info
-   - Warranty period
-6. Set stock quantity and SKU
-7. Publish - appears on website instantly
+Since we are building locally, follow this exact path to go live:
 
-### Bulk Operations
-- Import/export products via CSV
-- Bulk edit prices, stock, categories
-- Schedule sales with date ranges
-- Duplicate products for similar items
+1. **Preparation:**
+   - Ensure local site is perfect.
+   - Install **All-in-One WP Migration** (Free) on Local and Live (in a subdirectory `/new`).
 
----
+2. **Export/Import:**
+   - Local: Export to File (.wpress).
+   - Live (`netpluscomputers.lk/new`): Import file.
+   - *Note:* This overwrites the fresh install in `/new` with your local build.
 
-## 📝 Blog Management Workflow
+3. **Search Replace:**
+   - The plugin automatically handles URL changes from `local` to `netpluscomputers.lk/new`.
 
-### Publishing Tech Updates
-1. Go to **Posts → Add New**
-2. Use visual editor (Gutenberg or Elementor)
-3. Add images, videos, code snippets
-4. Categorize (Hardware News, Software Updates, Reviews)
-5. Set featured image and SEO meta
-6. Publish or schedule for later
+4. **Testing Phase:**
+   - Test the site at `netpluscomputers.lk/new`.
+   - Check links, images, and login.
 
-### Blog Features
-- Related posts automation
-- Author bio boxes
-- Social sharing buttons
-- Comment moderation with anti-spam
-- RSS feed for tech updates
-
----
-
-## 👥 Multi-Role Account System
-
-### Admin Role (You)
-- Full access to all settings
-- Manage users, plugins, themes
-- View all orders, analytics
-- Access to security settings
-
-### Manager Role (Staff)
-- ✅ Add/edit/delete products
-- ✅ Process orders and update status
-- ✅ Write and publish blog posts
-- ✅ Respond to customer reviews
-- ❌ Cannot install plugins or change site settings
-- ❌ Cannot access user data or financial reports
-
-### Customer Role
-- Browse products and add to cart
-- Place orders and track delivery
-- Leave product reviews
-- Manage profile and order history
-- Contact via WhatsApp/Chat
-
----
-
-## 🚀 Performance Optimization
-
-### Speed Enhancements
-- **Disable unused widgets in Essential Addons and ShopEngine** (Critical for speed). Go to their settings and toggle OFF anything you don't use to prevent code bloat.
-- Enable Cloudflare Auto Minify (CSS, JS, HTML)
-- Use WebP image format via free plugin
-- Implement lazy loading for images
-- Browser caching via .htaccess
-- Database optimization weekly
-
-### Expected Performance
-- **Page Load Time**: < 2 seconds (vs 5+ seconds on previous site)
-- **Mobile Score**: 90+ on Google PageSpeed Insights
-- **Bot Traffic Blocked**: 99% at Cloudflare level
-- **Server Load**: 60% reduction with Full WAF mode
-
----
-
-## 📞 Sri Lankan Integrations
-
-### Payment Gateways
-- **PayHere**: Cards, bank transfers, eZ Cash, mCash
-- **DirectPay**: Direct bank payments
-- **Cash on Delivery**: For local trust-building
-
-### Delivery Partners
-- **PickMe Flash**: Same-day Colombo delivery
-- **PromptX**: Island-wide courier
-- **SL Post**: Registered postal service
-- **Custom Zones**: Set rates by district
-
-### Communication
-- **WhatsApp Floating Button**: Direct chat with customers
-- **Live Chat Widget**: Real-time support (Tidio)
-- **SMS Notifications**: Order confirmations via local SMS gateway
-- **Phone/Email**: Traditional contact methods
-
----
-
-## 🔄 Migration from Old Site
-
-### Data to Preserve
-- [ ] Export all products to CSV
-- [ ] Export customer emails (for newsletter)
-- [ ] Save blog posts as XML
-- [ ] Download all product images
-- [ ] Document current URL structure for redirects
-
-### 301 Redirects
-Create redirect map for old URLs to new structure to preserve SEO rankings.
-
-### Go-Live Checklist
-- [ ] Final backup of old site
-- [ ] DNS switch to new site
-- [ ] Test all payment gateways with real transactions
-- [ ] Verify WhatsApp/Chat button functionality
-- [ ] Check mobile responsiveness on all devices
-- [ ] Monitor Cloudflare analytics for first 48 hours
+5. **Go Live:**
+   - **Option A (Safe):** Use a redirect plugin to make `/new` the homepage temporarily.
+   - **Option B (Clean):** Once confirmed, ask hosting support to "Move subdirectory to root" or manually swap files.
+   - **Activate Cloudflare:** Switch nameservers last to activate global bot protection.
 
 ---
 
 ## 🆘 Support & Maintenance
 
-### Monthly Tasks
-- Update all plugins (test on staging first)
-- Review Cloudflare security events
-- Optimize database tables
-- Check broken links
-- Backup verification
-
-### Where to Get Help
-- **Elementor Community**: Facebook groups, Reddit r/elementor
-- **WordPress Sri Lanka**: Local developer community
-- **Plugin Documentation**: Official docs for each free plugin
-- **YouTube Tutorials**: Search "[Plugin Name] tutorial"
+- **Local Issues:** Check LocalWP logs.
+- **Plugin Help:** Official WordPress.org support forums.
+- **Community:** "Elementor Pakistan/India/Sri Lanka" Facebook groups for quick tips.
 
 ---
 
-## 📊 Success Metrics
-
-Track these after launch:
-- Bot attacks blocked (Cloudflare dashboard)
-- Page load time improvement
-- Conversion rate increase
-- Reduced spam in contact forms
-- Manager productivity (products added per week)
-- Customer satisfaction (reviews, repeat purchases)
-
----
-
-**Next Step**: Read `SETUP_GUIDE_PHASE0.md` FIRST before touching any plugins. Security foundation must be laid before design work begins.
+**Next Step:** Open `SETUP_GUIDE_PHASE0.md` and start installing LocalWP. Do not touch your live cPanel yet!
