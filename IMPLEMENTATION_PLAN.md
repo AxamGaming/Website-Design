@@ -1,23 +1,14 @@
 # NetPlus Computers - Website Rebuild Implementation Plan
-**Strategy: Local-First Development → Secure Migration**
+**Strategy:** Local-First Development → Secure Migration → Live Launch
+**Goal:** Rebuild netpluscomputers.lk with a 100% Free WordPress Stack, solving previous bot spam issues while maintaining easy product/blog management.
 
-## 🎯 Project Overview
-Rebuilding netpluscomputers.lk with a **100% Free WordPress Stack**. 
-- **Phase 1-4:** Build entirely on your local computer (Zero risk to live site).
-- **Phase 5:** Migrate to live hosting only when approved.
-- **Goal:** Solve bot spam issues, enable easy product management, and achieve Elementor-style design control without annual plugin fees.
-
-## ✅ Core Requirements Met
-- [x] **Safe Development:** No changes to live database/site until migration.
-- [x] Easy product addition/editing (No coding).
-- [x] Blog post management with visual editor.
-- [x] Multi-role accounts (Admin, Manager, Customer).
-- [x] Drag-and-drop page building (Elementor-style).
-- [x] Product grid customization (columns, layouts).
-- [x] WhatsApp contact integration & Live Chat.
-- [x] Sri Lankan payment gateways (PayHere, DirectPay).
-- [x] Enterprise-grade security (Cloudflare + NinjaFirewall).
-- [x] **Zero annual plugin costs** (~25,000 LKR/year hosting only).
+## 🎯 Core Requirements Met
+- [x] **Safe Development:** Build locally first; zero risk to live site.
+- [x] **Easy Management:** Visual product/blog editing (no coding).
+- [x] **Security:** Enterprise-grade bot protection (Cloudflare + NinjaFirewall).
+- [x] **Design Control:** Drag-and-drop layouts, grid customization, mobile responsive.
+- [x] **Features:** Multi-role accounts, WhatsApp chat, Reviews, Sri Lankan Payments.
+- [x] **Cost:** ~25,000 LKR/year (Hosting only; all plugins FREE).
 
 ---
 
@@ -29,162 +20,132 @@ Rebuilding netpluscomputers.lk with a **100% Free WordPress Stack**.
 | **Elementor Free** | Core drag-and-drop canvas | Free |
 | **Header & Footer Builder** | Custom headers/footers | Free |
 | **Essential Addons for Elementor** | Advanced widgets, grids, motion effects | Free |
-| **ShopEngine** | WooCommerce builder (Cart, Checkout, Product) | Free |
+| **ShopEngine** | WooCommerce page builder (Cart, Checkout, Product) | Free |
 
-### 🗃️ Custom Fields & Data
+### 🗃️ Data & Fields
 | Plugin | Purpose | Cost |
 |--------|---------|------|
-| **Pods Framework** | Custom post types, complex fields, relationships | Free |
+| **Pods Framework** | Custom post types, complex product specs | Free |
 | **Secure Custom Fields (SCF)** | Simple spec tables (ACF alternative) | Free |
 
 ### 👥 Roles & Security
 | Plugin | Purpose | Cost |
 |--------|---------|------|
-| **User Role Editor** | Granular Admin/Manager permissions | Free |
-| **NinjaFirewall WP Ed.** | Server-level WAF (Blocks bots before WP loads) | Free |
-| **WPS Hide Login** | Hides admin URL from bots | Free |
+| **User Role Editor** | Custom Admin/Manager/Customer roles | Free |
+| **NinjaFirewall WP Edition** | Server-level WAF (Full Mode) | Free |
+| **WPS Hide Login** | Hide admin URL | Free |
+| **Limit Login Attempts** | Brute force protection | Free |
 
 ---
 
 ## 📅 Implementation Timeline (5 Weeks)
 
-### Week 1: Local Environment & Security (CURRENT PHASE)
+### Week 1: Local Setup & Security Simulation
 - [ ] **Install LocalWP** on your computer.
-- [ ] **Create Local Site** (`netplus-new.local`).
-- [ ] **Install Security Plugins** (NinjaFirewall, WPS Hide Login).
-- [ ] **Configure Hidden Login URL** (`/np-secure-login-2025`).
-- [ ] **Verify** live site is untouched.
+- [ ] **Create Local Site** (`NetPlus-New`).
+- [ ] **Install Security Stack:** NinjaFirewall (Full WAF), WPS Hide Login, Limit Login Attempts.
+- [ ] **Test Security:** Verify hidden login URL and firewall rules locally.
+- [ ] **Install Design Stack:** Elementor, ShopEngine, Essential Addons, Pods.
 
-### Week 2: Core Installation & Design (Local)
-- [ ] Install Elementor Free + Header & Footer Builder.
-- [ ] Install Essential Addons (**Disable unused widgets** for speed).
-- [ ] Install ShopEngine + WooCommerce.
-- [ ] **Design Homepage:** Hero section, Featured Products, Categories.
-- [ ] **Design Header/Footer:** Logo, Nav, WhatsApp Button, Cart Icon.
-- [ ] **Build Product Templates:** Single product page layout with Spec Tables.
+### Week 2: Local Design & Content Build
+- [ ] **Configure WooCommerce:** Set currency to LKR, add shipping zones (Colombo, Kandy, etc.).
+- [ ] **Build Header/Footer:** Logo, Nav, Cart Icon, WhatsApp Button.
+- [ ] **Design Homepage:** Featured products, categories, blog section.
+- [ ] **Customize Product Page:** Layout, Spec tables (using Pods), Reviews.
+- [ ] **Create Dummy Content:** Add 5-10 test products and 2 blog posts.
 
-### Week 3: Data Architecture & Content (Local)
-- [ ] Configure **Pods Framework** for Computer Parts specs (Socket, RAM, etc.).
-- [ ] Create **User Roles**: Admin (Full), Manager (Products/Orders only).
-- [ ] **Import Dummy Data:** Add 5-10 sample products and blog posts manually to test layout.
-- [ ] Test **Mobile Responsiveness** using LocalWP preview tools.
+### Week 3: Functionality & Roles
+- [ ] **Setup User Roles:** Define "Manager" capabilities (edit products only).
+- [ ] **Test Workflows:** 
+  - Manager adds product.
+  - Customer places order.
+  - Admin processes order.
+- [ ] **Integrate Chat:** Add Tidio or WhatsApp click-to-chat button.
+- [ ] **Payment Gateway:** Install PayHere/DirectPay sandbox mode for testing.
 
-### Week 4: Functionality & Integrations (Local)
-- [ ] **Chat Integration:** Install **Tidio** (Free) or **Click-to-Chat** for WhatsApp.
-  - *Reference:* Mimic floating button style from `mdcomputers.lk` and `alphatronic.lk`.
-- [ ] **Review System:** Enable WooCommerce native reviews.
-- [ ] **Search & Filter:** Configure product filtering by category/price.
-- [ ] **Optimization:** Run performance checks (ensure <2s load time locally).
+### Week 4: Migration Preparation
+- [ ] **Backup Live Site:** Download full backup of current `netpluscomputers.lk` (files + DB).
+- [ ] **Create Live Database:** New DB (`netplus_new_db`) and user on cPanel.
+- [ ] **Export Local Site:** Use "All-in-One WP Migration" to create export file.
+- [ ] **Staging Test (Optional):** Import to `netpluscomputers.lk/new` subfolder for final client approval.
 
-### Week 5: Migration & Go-Live
-- [ ] **Backup Live Site:** Full backup of current `netpluscomputers.lk` via cPanel.
-- [ ] **Migrate Local to Live:** 
-  - Use **All-in-One WP Migration** or **Duplicator** plugin.
-  - Export local site package.
-  - Install fresh WordPress in a **subdirectory** (`netpluscomputers.lk/new`) on cPanel.
-  - Import package to subdirectory.
-- [ ] **Test in Subdirectory:** Verify everything works at `.lk/new`.
+### Week 5: Go-Live & Hardening
+- [ ] **Migrate to Root:** Move new site to main domain (replacing old site).
 - [ ] **Cloudflare Setup:** 
-  - Switch Nameservers to Cloudflare.
-  - Add Rule: Block `/wp-login.php`.
-- [ ] **Final Switch:** Move new site from `/new` to root (replacing old site) OR update DNS to point to new location.
-- [ ] **Monitor:** Watch Cloudflare analytics for blocked bots.
+  - Update Nameservers.
+  - Enable "Full Strict" SSL.
+  - **Create Page Rules:** Block `/wp-login.php` and `/xmlrpc.php`.
+- [ ] **Final Security Check:** Verify NinjaFirewall is active on live server.
+- [ ] **Submit Sitemap:** To Google Search Console.
+- [ ] **Monitor:** Watch Cloudflare analytics for blocked bot attacks.
 
 ---
 
-## 💰 Cost Breakdown
+## 💰 Cost Breakdown (Annual)
 
-| Item | Annual Cost (LKR) |
-|------|-------------------|
-| Domain renewal | ~3,500 |
-| Hosting (cPanel) | ~20,000 |
-| **All Plugins** | **FREE** |
-| **Total** | **~23,500 LKR/year** |
-
-**Savings:** ~110,000 LKR/year compared to premium stack.
-
----
-
-## 🔐 Security Features (Bot Spam Solution)
-
-### Multi-Layer Protection
-1. **Local Development:** Bots cannot attack what isn't online yet.
-2. **NinjaFirewall (Full WAF):** Stops SQL injection and malware uploads immediately upon migration.
-3. **Hidden Admin URL:** Bots scanning `/wp-admin` get a 404 error.
-4. **Cloudflare (Post-Migration):** Blocks 99% of bot traffic at the DNS level before it hits your server.
-5. **Login Limits:** Locks out IPs after 3 failed attempts.
-
-### Why This Solves Your Previous Problem
-Your last site was attacked directly because it was exposed. This workflow builds behind a wall (your computer) and only exposes a hardened fortress to the internet when ready.
+| Item | Cost (LKR) | Notes |
+|------|------------|-------|
+| Domain Renewal | ~3,500 | LK Domain Registry |
+| Hosting (cPanel) | ~20,000 | Existing or new provider |
+| Cloudflare | 0 | Free Plan sufficient |
+| Plugins | 0 | 100% Free Stack |
+| **Total** | **~23,500** | **Save ~110,000 vs Premium Stack** |
 
 ---
 
-## 🎨 Design Control Features
+## 🔐 Security Architecture (Bot Spam Solution)
 
-### What You Can Customize (No Coding)
-- ✅ **Move Elements:** Drag products, text, images anywhere.
-- ✅ **Grid Control:** Switch between 2, 3, 4 columns instantly.
-- ✅ **Styling:** Resize icons, buttons, fonts visually.
-- ✅ **Templates:** Save custom product layouts for different categories (e.g., Motherboards vs. Keyboards).
+### Layer 1: Cloudflare (DNS Level)
+- **Blocks:** Bad bots, DDoS, known attackers.
+- **Rule:** Block all access to `/wp-login.php` (since we use hidden URL).
+- **Rule:** Block `/xmlrpc.php` completely.
 
-### Design Inspiration References
-Use these sites for layout ideas (to be replicated with Elementor):
-- **mdcomputers.lk:** Clean category grids, prominent search.
-- **alphatronic.lk:** Detailed product specs tables, sidebar filters.
-- **scionelectronics.com:** Banner sliders, featured deals section.
-- **duino.lk:** Simplified checkout flow, tech blog integration.
+### Layer 2: NinjaFirewall (Server Level)
+- **Mode:** Full WAF (loads before WordPress).
+- **Blocks:** SQL injection, malicious file uploads, fake Google bots.
 
----
+### Layer 3: Application Level
+- **Hidden Login:** `/np-secure-login-2025` (nobody knows the URL).
+- **Login Limits:** Lockout after 3 failed attempts.
+- **File Edit Disabled:** `DISALLOW_FILE_EDIT` in wp-config.php.
 
-## 📦 Product & Blog Management Workflow
-
-### Adding Products
-1. **Products > Add New**.
-2. Enter Title, Price, Description.
-3. **Pods Fields:** Fill in technical specs (appears in a neat table on frontend).
-4. **Image:** Drag and drop.
-5. **Publish**.
-
-### Managing Blogs
-1. **Posts > Add New**.
-2. Use visual editor for tech updates.
-3. Categorize (News, Reviews, Guides).
+**Result:** Bots are stopped before they even reach your database.
 
 ---
 
-## 🚀 Migration Strategy (Critical Step)
+## 🎨 Design Inspiration & References
+*Use these sites for layout ideas, color schemes, and feature placement:*
+1. **mdcomputers.lk** - Clean product grids, clear categories.
+2. **alphatronic.lk** - Tech blog layout, detailed spec tables.
+3. **scionelectronics.com** - Banner designs, promotional sections.
+4. **duino.lk** - Simplified checkout flow, maker-focused content.
 
-Since we are building locally, follow this exact path to go live:
-
-1. **Preparation:**
-   - Ensure local site is perfect.
-   - Install **All-in-One WP Migration** (Free) on Local and Live (in a subdirectory `/new`).
-
-2. **Export/Import:**
-   - Local: Export to File (.wpress).
-   - Live (`netpluscomputers.lk/new`): Import file.
-   - *Note:* This overwrites the fresh install in `/new` with your local build.
-
-3. **Search Replace:**
-   - The plugin automatically handles URL changes from `local` to `netpluscomputers.lk/new`.
-
-4. **Testing Phase:**
-   - Test the site at `netpluscomputers.lk/new`.
-   - Check links, images, and login.
-
-5. **Go Live:**
-   - **Option A (Safe):** Use a redirect plugin to make `/new` the homepage temporarily.
-   - **Option B (Clean):** Once confirmed, ask hosting support to "Move subdirectory to root" or manually swap files.
-   - **Activate Cloudflare:** Switch nameservers last to activate global bot protection.
+**Key Feature to Replicate:** Floating WhatsApp/Chat button on all pages (bottom-right corner).
 
 ---
 
-## 🆘 Support & Maintenance
+## 📦 Product Management Workflow (No Coding)
+1. **Add New:** Dashboard > Products > Add New.
+2. **Details:** Name, Price, Description, Images (Drag & Drop).
+3. **Specs:** Use "Product Specs" box (powered by Pods) to enter RAM, Socket, etc.
+4. **Publish:** Click Publish. Instantly live.
 
-- **Local Issues:** Check LocalWP logs.
-- **Plugin Help:** Official WordPress.org support forums.
-- **Community:** "Elementor Pakistan/India/Sri Lanka" Facebook groups for quick tips.
+**Bulk Actions:** Import/Export CSV for mass updates.
 
 ---
 
-**Next Step:** Open `SETUP_GUIDE_PHASE0.md` and start installing LocalWP. Do not touch your live cPanel yet!
+## 🚀 Migration Checklist (Go-Live Day)
+- [ ] Old site backed up.
+- [ ] New database created on cPanel.
+- [ ] Local site exported.
+- [ ] Imported to live server.
+- [ ] Permalinks refreshed (Settings > Permalinks > Save).
+- [ ] Cloudflare Nameservers updated.
+- [ ] Cloudflare Page Rules active.
+- [ ] SSL certificate valid.
+- [ ] Test Order placed successfully.
+- [ ] WhatsApp button working.
+
+---
+
+**Ready to start?** Open `SETUP_GUIDE_PHASE0.md` and install LocalWP today!
